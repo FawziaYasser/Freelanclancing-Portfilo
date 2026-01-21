@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fawzia Yasser | Frontend Developer</title>
+    <meta name="description"
+        content="Portfolio of Fawzia Yasser, a generic Frontend Developer specializing in React.js.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#38bdf8', // Sky-400 (Softer than Cyan)
+                        primaryDark: '#0284c7', // Sky-600
+                        secondary: '#94a3b8', // Slate-400
+                        dark: '#0f172a', // Slate-900 (Rich Navy)
+                        card: '#1e293b', // Slate-800 (Lighter Navy)
+                        accent: '#a78bfa', // Violet-400 (Soft Purple)
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="font-sans text-slate-300 bg-dark antialiased selection:bg-primary selection:text-dark overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-dark/80 backdrop-blur-md border-b border-slate-800 transition-all duration-300"
+        id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home"
+                class="text-2xl font-bold text-white tracking-tight hover:text-primary transition-colors animate-pulse">F<span
+                    class="text-primary">Y</span></a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-secondary hover:text-primary transition-colors font-medium">About</a>
+                <a href="#skills" class="text-secondary hover:text-primary transition-colors font-medium">Skills</a>
+                <a href="#projects" class="text-secondary hover:text-primary transition-colors font-medium">Projects</a>
+                <a href="#contact" class="text-secondary hover:text-primary transition-colors font-medium">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-2xl text-white focus:outline-none" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden bg-card border-b border-slate-800 max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out"
+            id="mobile-menu">
+            <div class="flex flex-col px-6 py-4 space-y-4">
+                <a href="#about" class="text-secondary hover:text-primary font-medium block">About</a>
+                <a href="#skills" class="text-secondary hover:text-primary font-medium block">Skills</a>
+                <a href="#projects" class="text-secondary hover:text-primary font-medium block">Projects</a>
+                <a href="#contact" class="text-secondary hover:text-primary font-medium block">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+        <!-- Animated Background Blobs -->
+        <div
+            class="absolute top-0 -left-4 w-72 h-72 bg-primary/30 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob">
+        </div>
+        <div
+            class="absolute top-0 -right-4 w-72 h-72 bg-accent/30 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000">
+        </div>
+        <div
+            class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500/30 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000">
+        </div>
+
+        <div class="container mx-auto px-6 text-center z-10" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="space-y-6">
+                <!-- Name -->
+                <h1
+                    class="text-6xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 leading-tight tracking-tight mb-2">
+                    Fawzia Yasser
+                </h1>
+
+                <!-- Role & Typewriter -->
+                <div
+                    class="text-2xl md:text-4xl font-bold flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3 text-white h-24 md:h-auto">
+                    <span class="text-primary" id="typewriter"></span><span class="cursor-blink text-primary">|</span>
+                </div>
+
+                <!-- Short Description -->
+                <p class="text-lg md:text-xl text-secondary max-w-2xl mx-auto leading-relaxed">
+                    Building modern, responsive, and scalable web interfaces. <br class="hidden md:block">
+                    Turning complex requirements into seamless user experiences.
+                </p>
+
+                <!-- CTA -->
+                <div class="pt-10 flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="#projects"
+                        class="group relative px-8 py-4 bg-primary text-dark font-bold rounded-lg overflow-hidden shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] transition-all duration-300">
+                        <span class="relative z-10 group-hover:text-black transition-colors">View My Work</span>
+                        <div
+                            class="absolute inset-0 h-full w-full bg-gradient-to-r from-primary to-cyan-300 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300">
+                        </div>
+                    </a>
+                    <a href="#contact"
+                        class="px-8 py-4 bg-transparent border border-slate-700 text-white font-bold rounded-lg hover:border-primary hover:text-primary transition-colors duration-300">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-slate-500">
+            <i class="fa-solid fa-chevron-down text-xl"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-dark relative">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">About Me</h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Bio Card -->
+                <div class="bg-gradient-to-br from-slate-900 to-slate-800/80 p-8 rounded-3xl border border-slate-700/50 hover:border-primary/50 transition-all duration-300 shadow-xl"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center text-primary mb-6">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Who I Am</h3>
+                    <p class="text-slate-300 leading-relaxed mb-4">
+                        I am a passionate <span class="text-primary font-semibold">Frontend Developer</span> with a
+                        knack for building high-performance web applications. My journey involves turning complex
+                        problems into simple, beautiful, and intuitive interface designs.
+                    </p>
+                    <p class="text-slate-300 leading-relaxed">
+                        I specialize in the <span class="text-white font-medium">React ecosystem</span> and modern CSS,
+                        ensuring every pixel serves a purpose.
+                    </p>
+                </div>
+
+                <!-- Experience Card -->
+                <div class="bg-gradient-to-br from-slate-900 to-indigo-950/80 p-8 rounded-3xl border border-slate-700/50 hover:border-accent/50 transition-all duration-300 shadow-xl"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center text-accent mb-6">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Experience</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-xs font-bold text-accent uppercase tracking-wider">2024 - Present</span>
+                            <h4 class="text-lg font-bold text-white">Frontend Developer</h4>
+                            <p class="text-slate-400 text-sm">Freelance & Personal Projects</p>
+                            <p class="text-slate-300 text-sm mt-2">Built and deployed 10+ responsive web applications
+                                using React and Tailwind.</p>
+                        </div>
+                        <div class="pt-4 border-t border-white/5">
+                            <span class="text-xs font-bold text-accent uppercase tracking-wider">Highlights</span>
+                            <ul class="text-slate-300 text-sm mt-2 list-disc list-inside space-y-1">
+                                <li>10+ Projects Completed</li>
+                                <li>Mastery of Responsive UI</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Card -->
+                <div class="bg-gradient-to-br from-slate-900 to-purple-950/80 p-8 rounded-3xl border border-slate-700/50 hover:border-purple-400/50 transition-all duration-300 shadow-xl"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center text-purple-400 mb-6">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Education</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-lg font-bold text-white">B.Sc. Engineering</h4>
+                            <p class="text-purple-300 text-sm">Helwan University</p>
+                            <p class="text-slate-400 text-xs mt-1">Communications & Computer Dept.</p>
+                            <span
+                                class="inline-block mt-2 px-2 py-1 bg-green-500/20 text-green-400 text-xs font-bold rounded">Excellent
+                                Grade</span>
+                        </div>
+                        <div class="pt-2">
+                            <h4 class="text-base font-bold text-white">Graduation Project</h4>
+                            <p class="text-slate-400 text-xs">Capstone Project (Distinction)</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-dark/50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">My Skills</h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-accent to-primary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+
+                <!-- Technical Mastery Card -->
+                <div class="bg-gradient-to-br from-card to-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-primary/30 transition-all duration-300"
+                    data-aos="fade-right">
+                    <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                        <i class="fa-solid fa-code text-primary"></i> Technical Mastery
+                    </h3>
+
+                    <div class="space-y-6">
+                        <!-- React -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">React.js</span>
+                                <span class="text-primary font-bold">95%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <!-- JS -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">JavaScript (ES6+)</span>
+                                <span class="text-primary font-bold">90%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <!-- Tailwind -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">Tailwind CSS</span>
+                                <span class="text-primary font-bold">95%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <!-- HTML/CSS -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">HTML5 & CSS3</span>
+                                <span class="text-primary font-bold">100%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & Soft Skills Card -->
+                <div class="bg-gradient-to-br from-card to-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-accent/30 transition-all duration-300"
+                    data-aos="fade-left">
+                    <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                        <i class="fa-solid fa-shapes text-accent"></i> Tools & Soft Skills
+                    </h3>
+
+                    <div class="flex flex-wrap gap-x-2 gap-y-3 mb-8">
+                        <span
+                            class="px-3 py-1 bg-slate-800/50 border border-slate-700 text-slate-300 rounded-full text-sm">TypeScript</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800/50 border border-slate-700 text-slate-300 rounded-full text-sm">Git
+                            & GitHub</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800/50 border border-slate-700 text-slate-300 rounded-full text-sm">Python</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800/50 border border-slate-700 text-slate-300 rounded-full text-sm">SQL</span>
+                        <span
+                            class="px-3 py-1 bg-slate-800/50 border border-slate-700 text-slate-300 rounded-full text-sm">Figma</span>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="p-2 rounded-lg bg-accent/10 text-accent"><i class="fa-solid fa-check"></i></div>
+                            <span class="text-slate-300">Problem Solving & Analytical Thinking</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="p-2 rounded-lg bg-accent/10 text-accent"><i class="fa-solid fa-users"></i></div>
+                            <span class="text-slate-300">Team Collaboration & Leadership</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="p-2 rounded-lg bg-accent/10 text-accent"><i class="fa-solid fa-clock"></i></div>
+                            <span class="text-slate-300">Time Management</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Featured Projects</h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+                <p class="text-secondary mt-6 text-lg">A showcase of 10 projects demonstrating my frontend capabilities.
+                </p>
+            </div>
+
+            <!-- Grid of 10 Projects -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+                <!-- Project Card 1 -->
+                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
+                            <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        </div>
+                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
+                                class="fa-brands fa-github text-xl"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">E-Commerce
+                        App</h3>
+                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">A fully functional shopping platform
+                        with cart, checkout, and product filtering capabilities.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">React</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">Redux</span>
+                    </div>
+                    <a href="#"
+                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
+                        Live</a>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
+                    data-aos="fade-up" data-aos-delay="150">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
+                            <i class="fa-solid fa-list-check text-xl"></i>
+                        </div>
+                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
+                                class="fa-brands fa-github text-xl"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Task
+                        Manager</h3>
+                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">Productivity tool with drag-and-drop
+                        Kanban board using dnd-kit.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">React</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">DnD</span>
+                    </div>
+                    <a href="#"
+                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
+                        Live</a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
+                            <i class="fa-solid fa-cloud-sun text-xl"></i>
+                        </div>
+                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
+                                class="fa-brands fa-github text-xl"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Weather
+                        Dashboard</h3>
+                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">Real-time weather tracking utilizing
+                        OpenWeatherMap API and geolocation.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">JS</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">API</span>
+                    </div>
+                    <a href="#"
+                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
+                        Live</a>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
+                    data-aos="fade-up" data-aos-delay="250">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
+                            <i class="fa-solid fa-user text-xl"></i>
+                        </div>
+                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
+                                class="fa-brands fa-github text-xl"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Portfolio
+                        v1</h3>
+                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">A personal portfolio website
+                        showcasing designs and project history.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">HTML</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">CSS</span>
+                    </div>
+                    <a href="#"
+                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
+                        Live</a>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
+                            <i class="fa-solid fa-chart-line text-xl"></i>
+                        </div>
+                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
+                                class="fa-brands fa-github text-xl"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Admin
+                        Dashboard</h3>
+                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">Analytics dashboard with charts, user
+                        management and data visualization.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">React</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">Charts</span>
+                    </div>
+                    <a href="#"
+                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
+                        Live</a>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
+                    data-aos="fade-up" data-aos-delay="350">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
+                            <i class="fa-solid fa-hashtag text-xl"></i>
+                        </div>
+                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
+                                class="fa-brands fa-github text-xl"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Social
+                        Clone</h3>
+                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">Social media feed with like, comment,
+                        and posting functionalities.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">React</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">Firebase</span>
+                    </div>
+                    <a href="#"
+                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
+                        Live</a>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
+                            <i class="fa-solid fa-gamepad text-xl"></i>
+                        </div>
+                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
+                                class="fa-brands fa-github text-xl"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Quiz App
+                    </h3>
+                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">Interactive quiz game with timer and
+                        scoring system.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">JS</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">DOM</span>
+                    </div>
+                    <a href="#"
+                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
+                        Live</a>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
+                    data-aos="fade-up" data-aos-delay="450">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
+                            <i class="fa-solid fa-film text-xl"></i>
+                        </div>
+                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
+                                class="fa-brands fa-github text-xl"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Movie
+                        Search</h3>
+                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">Movie database interface allowing
+                        search and details view.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">React</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">API</span>
+                    </div>
+                    <a href="#"
+                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
+                        Live</a>
+                </div>
+
+                <!-- Project 9 -->
+                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
+                    data-aos="fade-up" data-aos-delay="500">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
+                            <i class="fa-solid fa-calculator text-xl"></i>
+                        </div>
+                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
+                                class="fa-brands fa-github text-xl"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Calculator
+                    </h3>
+                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">A clean, functional calculator with
+                        support for basic arithmetic operations.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">JS</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">CSS</span>
+                    </div>
+                    <a href="#"
+                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
+                        Live</a>
+                </div>
+
+                <!-- Project 10 -->
+                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
+                    data-aos="fade-up" data-aos-delay="550">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
+                            <i class="fa-solid fa-laptop-code text-xl"></i>
+                        </div>
+                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
+                                class="fa-brands fa-github text-xl"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Landing
+                        Page</h3>
+                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">High-conversion landing page with
+                        smooth scroll and animations.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">HTML</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">Tailwind</span>
+                    </div>
+                    <a href="#"
+                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
+                        Live</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-card relative overflow-hidden">
+        <!-- Glow -->
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -z-10 animate-pulse">
+        </div>
+
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto rounded-3xl bg-slate-900/80 backdrop-blur-md border border-slate-800 p-8 md:p-16 text-center shadow-2xl"
+                data-aos="zoom-in">
+                <h2 class="text-3xl font-bold text-white mb-4">Let's Work Together</h2>
+                <p class="text-slate-400 mb-10 max-w-xl mx-auto">
+                    I'm currently open for new opportunities. Whether you have a project in mind or just want to
+                    connect, feel free to reach out!
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-10">
+                    <div
+                        class="p-5 rounded-xl bg-dark/50 border border-slate-700/50 hover:border-primary/50 transition-all duration-300 group text-left">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-dark transition-colors shadow-[0_0_15px_rgba(34,211,238,0.2)]">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-slate-500 uppercase tracking-wider mb-1">Email Me</span>
+                                <span class="block text-sm text-white font-medium">contact@example.com</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="p-5 rounded-xl bg-dark/50 border border-slate-700/50 hover:border-primary/50 transition-all duration-300 group text-left">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-dark transition-colors shadow-[0_0_15px_rgba(34,211,238,0.2)]">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-slate-500 uppercase tracking-wider mb-1">Call Me</span>
+                                <span class="block text-sm text-white font-medium">+123 456 7890</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simple Contact Form -->
+                <form class="max-w-md mx-auto space-y-4 mb-10 text-left">
+                    <div>
+                        <input type="text" placeholder="Your Name"
+                            class="w-full px-4 py-3 bg-dark border border-slate-700 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm text-white placeholder-slate-500 transition-colors">
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Your Email"
+                            class="w-full px-4 py-3 bg-dark border border-slate-700 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm text-white placeholder-slate-500 transition-colors">
+                    </div>
+                    <div>
+                        <textarea placeholder="Your Message" rows="3"
+                            class="w-full px-4 py-3 bg-dark border border-slate-700 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm text-white placeholder-slate-500 transition-colors"></textarea>
+                    </div>
+                    <button type="button"
+                        class="w-full py-4 bg-primary hover:bg-cyan-300 text-dark font-bold rounded-lg transition-all duration-300 shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)]">
+                        Send Message <i class="fa-solid fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+
+                <div class="flex justify-center gap-8 pt-8 border-t border-slate-800">
+                    <a href="#" aria-label="GitHub Profile"
+                        class="text-slate-400 hover:text-white hover:scale-110 transition-all duration-300 text-2xl"><i
+                            class="fa-brands fa-github"></i></a>
+                    <a href="#" aria-label="LinkedIn Profile"
+                        class="text-slate-400 hover:text-blue-500 hover:scale-110 transition-all duration-300 text-2xl"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="WhatsApp Contact"
+                        class="text-slate-400 hover:text-green-500 hover:scale-110 transition-all duration-300 text-2xl"><i
+                            class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-slate-500 py-8 border-t border-slate-800">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; <span id="year"></span> <span class="font-bold text-slate-300">Fawzia Yasser</span>. All rights
+                reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
