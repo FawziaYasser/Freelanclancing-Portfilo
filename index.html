@@ -5,370 +5,478 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fawzia Yasser | Frontend Developer</title>
-    <meta name="description"
-        content="Portfolio of Fawzia Yasser, a generic Frontend Developer specializing in React.js.">
-    <!-- Tailwind CSS -->
+    <meta name="description" content="Portfolio of Fawzia Yasser, a Frontend Developer specializing in React.js.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#38bdf8', // Sky-400 (Softer than Cyan)
-                        primaryDark: '#0284c7', // Sky-600
-                        secondary: '#94a3b8', // Slate-400
-                        dark: '#0f172a', // Slate-900 (Rich Navy)
-                        card: '#1e293b', // Slate-800 (Lighter Navy)
-                        accent: '#a78bfa', // Violet-400 (Soft Purple)
+                        primary: '#38bdf8',
+                        primaryDark: '#0284c7',
+                        secondary: '#94a3b8',
+                        dark: '#0f172a',
+                        card: '#1e293b',
+                        accent: '#a78bfa',
                     },
-                    fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                    },
-                    animation: {
-                        'blob': 'blob 7s infinite',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        }
-                    }
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
                 }
             }
         }
     </script>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body class="font-sans text-slate-300 bg-dark antialiased selection:bg-primary selection:text-dark overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-dark/80 backdrop-blur-md border-b border-slate-800 transition-all duration-300"
-        id="navbar">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home"
-                class="text-xl md:text-2xl font-bold text-white tracking-tight hover:text-primary transition-colors animate-pulse whitespace-nowrap z-50">
-                Fawzia <span class="text-primary">Yasser</span>
-            </a>
-
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8">
-                <a href="#about" class="text-secondary hover:text-primary transition-colors font-medium">About</a>
-                <a href="#skills" class="text-secondary hover:text-primary transition-colors font-medium">Skills</a>
-                <a href="#projects" class="text-secondary hover:text-primary transition-colors font-medium">Projects</a>
-                <a href="#contact" class="text-secondary hover:text-primary transition-colors font-medium">Contact</a>
+    <nav class="fixed top-4 left-4 right-4 z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto">
+            <div class="floating-nav-container">
+                <div class="flex justify-between items-center h-14 px-4">
+                    <a href="#home" class="nav-logo">Fawzia <span>Yasser</span></a>
+                    <div class="hidden xl:flex items-center gap-1">
+                        <a href="#home" class="nav-link">Home</a>
+                        <a href="#about" class="nav-link">About</a>
+                        <a href="#education" class="nav-link">Education</a>
+                        <a href="#skills" class="nav-link">Skills</a>
+                        <a href="#experience" class="nav-link">Experience</a>
+                        <a href="#services" class="nav-link">Services</a>
+                        <a href="#projects" class="nav-link">Projects</a>
+                        <a href="#achievements" class="nav-link">Achievements</a>
+                        <a href="#testimonials" class="nav-link">Testimonials</a>
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </div>
+                    <div class="flex items-center gap-2 xl:hidden">
+                        <button class="text-xl text-white focus:outline-none menu-toggle-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                            <div class="menu-icon"><span></span><span></span><span></span></div>
+                        </button>
+                    </div>
+                </div>
             </div>
-
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden text-2xl text-white focus:outline-none" id="mobile-menu-btn">
-                <i class="fa-solid fa-bars"></i>
-            </button>
         </div>
-
-        <!-- Mobile Menu -->
-        <div class="md:hidden bg-card border-b border-slate-800 max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out"
-            id="mobile-menu">
-            <div class="flex flex-col px-6 py-4 space-y-4">
-                <a href="#about" class="text-secondary hover:text-primary font-medium block">About</a>
-                <a href="#skills" class="text-secondary hover:text-primary font-medium block">Skills</a>
-                <a href="#projects" class="text-secondary hover:text-primary font-medium block">Projects</a>
-                <a href="#contact" class="text-secondary hover:text-primary font-medium block">Contact</a>
+        <div class="xl:hidden">
+            <div class="mobile-menu" id="mobile-menu">
+                <div class="flex flex-col items-center gap-2 px-6 py-8">
+                    <a href="#home" class="mobile-nav-link">Home</a>
+                    <a href="#about" class="mobile-nav-link">About</a>
+                    <a href="#education" class="mobile-nav-link">Education</a>
+                    <a href="#skills" class="mobile-nav-link">Skills</a>
+                    <a href="#experience" class="mobile-nav-link">Experience</a>
+                    <a href="#services" class="mobile-nav-link">Services</a>
+                    <a href="#projects" class="mobile-nav-link">Projects</a>
+                    <a href="#achievements" class="mobile-nav-link">Achievements</a>
+                    <a href="#testimonials" class="mobile-nav-link">Testimonials</a>
+                    <a href="#contact" class="mobile-nav-link">Contact</a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
-        <!-- Animated Background Blobs -->
-        <div
-            class="absolute top-0 -left-4 w-72 h-72 bg-primary/30 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob">
-        </div>
-        <div
-            class="absolute top-0 -right-4 w-72 h-72 bg-accent/30 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000">
-        </div>
-        <div
-            class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500/30 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000">
-        </div>
-
-        <div class="container mx-auto px-6 text-center z-10" data-aos="zoom-in" data-aos-duration="1000">
-            <div class="space-y-6">
-                <!-- Name -->
-                <h1
-                    class="text-6xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 leading-tight tracking-tight mb-2">
-                    Fawzia Yasser
-                </h1>
-
-                <!-- Role & Typewriter -->
-                <div
-                    class="text-2xl md:text-4xl font-bold flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3 text-white h-24 md:h-auto">
-                    <span class="text-primary" id="typewriter"></span><span class="cursor-blink text-primary">|</span>
-                </div>
-
-                <!-- Short Description -->
-                <p class="text-lg md:text-xl text-secondary max-w-2xl mx-auto leading-relaxed">
-                    Building modern, responsive, and scalable web interfaces. <br class="hidden md:block">
-                    Turning complex requirements into seamless user experiences.
-                </p>
-
-                <!-- CTA -->
-                <div class="pt-10 flex flex-col md:flex-row gap-4 justify-center">
-                    <a href="#projects"
-                        class="group relative px-8 py-4 bg-primary text-dark font-bold rounded-lg overflow-hidden shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] transition-all duration-300">
-                        <span class="relative z-10 group-hover:text-black transition-colors">View My Work</span>
-                        <div
-                            class="absolute inset-0 h-full w-full bg-gradient-to-r from-primary to-cyan-300 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300">
-                        </div>
-                    </a>
-                    <a href="#contact"
-                        class="px-8 py-4 bg-transparent border border-slate-700 text-white font-bold rounded-lg hover:border-primary hover:text-primary transition-colors duration-300">
-                        Contact Me
-                    </a>
-                </div>
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-primary/30 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-accent/30 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-blob animation-delay-4000"></div>
+        
+        <div class="container mx-auto px-6 text-center z-10" data-aos="zoom-in">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 mb-4 mt-16" data-aos="fade-up" data-aos-delay="100">Fawzia <span class="text-primary">Yasser</span></h1>
+            <div class="text-xl md:text-3xl lg:text-4xl font-bold text-white mb-6" data-aos="fade-up" data-aos-delay="200"><span class="text-primary" id="typewriter"></span><span class="cursor-blink text-primary">|</span></div>
+            <p class="text-lg md:text-xl text-secondary max-w-2xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="300">Building modern, responsive, and scalable web interfaces with clean code and exceptional user experiences.</p>
+            <div class="flex flex-wrap gap-4 justify-center mb-8" data-aos="fade-up" data-aos-delay="400">
+                <a href="#projects" class="px-8 py-4 bg-primary text-dark font-bold rounded-xl hover:bg-cyan-300 transition-all duration-300 shadow-lg hover:shadow-primary/30">View My Work <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                <a href="#contact" class="px-8 py-4 bg-transparent border border-slate-600 text-white font-bold rounded-xl hover:border-primary hover:text-primary transition-all duration-300">Contact Me</a>
+            </div>
+            <div class="hero-cta-wrapper mb-8" data-aos="fade-up" data-aos-delay="500"><a href="#" class="premium-cv-btn"><i class="fa-solid fa-download"></i><span>Download CV</span></a></div>
+            <div class="flex justify-center gap-6 mt-12" data-aos="fade-up" data-aos-delay="600">
+                <a href="#" class="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/50 border border-slate-700 text-slate-400 hover:text-primary hover:border-primary/50 transition-all duration-300"><i class="fa-brands fa-github text-xl"></i></a>
+                <a href="#" class="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/50 border border-slate-700 text-slate-400 hover:text-blue-500 hover:border-blue-500/50 transition-all duration-300"><i class="fa-brands fa-linkedin-in text-xl"></i></a>
+                <a href="mailto:fawziayasser8@gmail.com" class="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/50 border border-slate-700 text-slate-400 hover:text-red-500 hover:border-red-500/50 transition-all duration-300"><i class="fa-solid fa-envelope text-xl"></i></a>
+                <a href="tel:01287292585" class="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/50 border border-slate-700 text-slate-400 hover:text-green-500 hover:border-green-500/50 transition-all duration-300"><i class="fa-solid fa-phone text-xl"></i></a>
             </div>
         </div>
-
-        <!-- Scroll Down Indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-slate-500">
-            <i class="fa-solid fa-chevron-down text-xl"></i>
-        </div>
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce"><a href="#about" class="text-slate-500 hover:text-primary transition-colors"><i class="fa-solid fa-chevron-down text-2xl"></i></a></div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="py-24 bg-dark relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-dark via-slate-900/50 to-dark"></div>
         <div class="container mx-auto px-6 relative z-10">
             <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">About Me</h2>
                 <div class="w-24 h-1.5 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
             </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Bio Card -->
-                <div class="bg-gradient-to-br from-slate-900 to-slate-800/80 p-8 rounded-3xl border border-slate-700/50 hover:border-primary/50 transition-all duration-300 shadow-xl"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center text-primary mb-6">
-                        <i class="fa-solid fa-user"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Who I Am</h3>
-                    <p class="text-slate-300 leading-relaxed mb-4">
-                        I am a passionate <span class="text-primary font-semibold">Frontend Developer</span> with a
-                        knack for building high-performance web applications. My journey involves turning complex
-                        problems into simple, beautiful, and intuitive interface designs.
-                    </p>
-                    <p class="text-slate-300 leading-relaxed">
-                        I specialize in the <span class="text-white font-medium">React ecosystem</span> and modern CSS,
-                        ensuring every pixel serves a purpose.
-                    </p>
+            <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-gradient-to-br from-slate-900 to-slate-800/50 p-8 md:p-12 rounded-3xl border border-slate-700/50 backdrop-blur-sm">
+                    <p class="text-lg md:text-xl text-slate-300 text-center leading-relaxed">I'm a <span class="text-primary font-semibold">Performance-Driven Frontend Developer</span> specializing in building <span class="text-white font-medium">exceptional digital experiences</span> with React. With a strong foundation in modern web technologies, I create responsive, user-friendly applications that deliver outstanding performance.</p>
                 </div>
-              
-
-               <!-- Experience Card -->
-                <div class="bg-gradient-to-br from-slate-900 to-indigo-950/80 p-8 rounded-3xl border border-slate-700/50 hover:border-accent/50 transition-all duration-300 shadow-xl"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center text-accent mb-6">
-                        <i class="fa-solid fa-briefcase"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Experience</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <span class="text-xs font-bold text-accent uppercase tracking-wider">2024 - Present</span>
-                            <h4 class="text-lg font-bold text-white">Frontend Developer</h4>
-                            <p class="text-slate-400 text-sm">Freelance & Personal Projects</p>
-                            <p class="text-slate-300 text-sm mt-2">Built and deployed 10+ responsive web applications
-                                using React and Tailwind.</p>
-                        </div>
-                        <div class="pt-4 border-t border-white/5">
-                            <span class="text-xs font-bold text-accent uppercase tracking-wider">Highlights</span>
-                            <ul class="text-slate-300 text-sm mt-2 list-disc list-inside space-y-1">
-                                <li>10+ Projects Completed</li>
-                                <li>Mastery of Responsive UI</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-             <!-- Education Card -->
-                <div class="bg-gradient-to-br from-slate-900 to-purple-950/80 p-8 rounded-3xl border border-slate-700/50 hover:border-purple-400/50 transition-all duration-300 shadow-xl"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <div
-                        class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center text-purple-400 mb-6">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Education</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <h4 class="text-lg font-bold text-white">B.Sc. Engineering</h4>
-                            <p class="text-purple-300 text-sm">Helwan University</p>
-                            <p class="text-slate-400 text-xs mt-1">Communications & Computer Dept.</p>
-                            <span
-                                class="inline-block mt-2 px-2 py-1 bg-green-500/20 text-green-400 text-xs font-bold rounded">Excellent
-                                Grade</span>
-                        </div>
-                        <div class="pt-2">
-                            <h4 class="text-base font-bold text-white">Graduation Project</h4>
-                            <p class="text-slate-400 text-xs">Capstone Project (Distinction)</p>
-                        </div>
-                    </div>
-                </div>
-
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 mt-12" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-item"><span class="stat-number-sm">2+</span><span class="stat-label-sm">Years Experience</span></div>
+                <div class="stat-divider"></div>
+                <div class="stat-item"><span class="stat-number-sm">10+</span><span class="stat-label-sm">Projects</span></div>
+                <div class="stat-divider"></div>
+                <div class="stat-item"><span class="stat-number-sm">4+</span><span class="stat-label-sm">Certifications</span></div>
             </div>
         </div>
     </section>
 
-     <!-- Skills Section -->
-    <section id="skills" class="py-24 bg-dark/50">
+    <!-- Education Section -->
+    <section id="education" class="py-24 bg-dark/50 relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Education & Certifications</h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Education Card -->
+                <div class="edu-card-main" data-aos="fade-up" data-aos-delay="100">
+                    <div class="edu-card-main-inner">
+                        <div class="edu-card-main-header">
+                            <div class="edu-card-main-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div>
+                                <span class="edu-card-main-badge">Education</span>
+                                <h3 class="edu-card-main-title">B.Eng. in Communications, Computers & Electronics Engineering</h3>
+                            </div>
+                        </div>
+                        <div class="edu-card-main-body">
+                            <div class="edu-card-main-meta-top">
+                                <span class="edu-card-main-date"><i class="fa-regular fa-calendar mr-2"></i>2019 - 2024</span>
+                                <span class="edu-card-main-grade"><i class="fa-solid fa-star mr-2"></i>Grade: Very Good</span>
+                            </div>
+                            <p class="edu-card-main-subtitle"><i class="fa-solid fa-university mr-2"></i>Helwan University</p>
+                            <p class="edu-card-main-specialization"><i class="fa-solid fa-laptop-code mr-2"></i>Specialization: Computer & Software Engineering</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certifications Card -->
+                <div class="edu-card-main" data-aos="fade-up" data-aos-delay="200">
+                    <div class="edu-card-main-inner">
+                        <div class="edu-card-main-header">
+                            <div class="edu-card-main-icon cert"><i class="fa-solid fa-certificate"></i></div>
+                            <div>
+                                <span class="edu-card-main-badge cert-badge">Certifications</span>
+                                <h3 class="edu-card-main-title">Professional Certifications</h3>
+                            </div>
+                        </div>
+                        <div class="edu-card-main-body">
+                            <div class="cert-item">
+                                <div class="cert-item-header">
+                                    <span class="cert-item-title">Web Development Training</span>
+                                    <span class="cert-item-institute">NTI</span>
+                                </div>
+                                <p class="cert-item-location"><i class="fa-solid fa-location-dot mr-1"></i>National Telecommunication Institute - Zagazig</p>
+                                <p class="cert-item-date">Dec 2024 - Jan 2025</p>
+                                <div class="cert-skills">
+                                    <span class="skill-tag">HTML</span>
+                                    <span class="skill-tag">CSS</span>
+                                    <span class="skill-tag">Bootstrap</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                </div>
+                            </div>
+                            <div class="cert-item">
+                                <div class="cert-item-header">
+                                    <span class="cert-item-title">AI Course</span>
+                                    <span class="cert-item-institute">ITI</span>
+                                </div>
+                                <p class="cert-item-location"><i class="fa-solid fa-location-dot mr-1"></i>Information Technology Institute</p>
+                                <p class="cert-item-date">2024 - Completed</p>
+                                <div class="cert-skills">
+                                    <span class="skill-tag">Artificial Intelligence</span>
+                                    <span class="skill-tag">Data Science</span>
+                                </div>
+                            </div>
+                            <div class="cert-item">
+                                <div class="cert-item-header">
+                                    <span class="cert-item-title">Frontend Developer</span>
+                                    <span class="cert-item-institute">DEPI</span>
+                                </div>
+                                <p class="cert-item-location"><i class="fa-solid fa-globe mr-1"></i>Digital Egypt Pioneers Initiative - Online</p>
+                                <p class="cert-item-date">Nov 2025 - May 2026</p>
+                                <div class="cert-skills">
+                                    <span class="skill-tag">HTML</span>
+                                    <span class="skill-tag">CSS</span>
+                                    <span class="skill-tag">Bootstrap</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">Tailwind</span>
+                                    <span class="skill-tag">React</span>
+                                    <span class="skill-tag">MongoDB</span>
+                                    <span class="skill-tag">.NET</span>
+                                    <span class="skill-tag">TypeScript</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section - 2 Cards -->
+    <section id="skills" class="py-24 bg-dark relative">
         <div class="container mx-auto px-6">
             <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">My Skills</h2>
                 <div class="w-24 h-1.5 bg-gradient-to-r from-accent to-primary mx-auto rounded-full"></div>
             </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Technical Skills Card -->
+                <div class="skills-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skills-header">
+                        <div class="skills-icon"><i class="fa-solid fa-code"></i></div>
+                        <h3 class="skills-title">Technical Skills</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-bar-item"><div class="skill-info"><span class="skill-name">HTML5 & CSS3</span><span class="skill-percent">100%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 100%"></div></div></div>
+                        <div class="skill-bar-item"><div class="skill-info"><span class="skill-name">JavaScript</span><span class="skill-percent">90%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div></div>
+                        <div class="skill-bar-item"><div class="skill-info"><span class="skill-name">TypeScript</span><span class="skill-percent">85%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div></div>
+                        <div class="skill-bar-item"><div class="skill-info"><span class="skill-name">React</span><span class="skill-percent">95%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div></div>
+                        <div class="skill-bar-item"><div class="skill-info"><span class="skill-name">Tailwind CSS</span><span class="skill-percent">95%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div></div>
+                        <div class="skill-bar-item"><div class="skill-info"><span class="skill-name">Bootstrap</span><span class="skill-percent">90%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div></div>
+                        <div class="skill-bar-item"><div class="skill-info"><span class="skill-name">Sass/SCSS</span><span class="skill-percent">85%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div></div>
+                        <div class="skill-bar-item"><div class="skill-info"><span class="skill-name">OOP</span><span class="skill-percent">80%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div></div>
+                        <div class="skill-bar-item"><div class="skill-info"><span class="skill-name">MongoDB</span><span class="skill-percent">75%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div></div>
+                        <div class="skill-bar-item"><div class="skill-info"><span class="skill-name">.NET</span><span class="skill-percent">70%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div></div>
+                    </div>
+                </div>
+                
+                <!-- Tools, Languages & Soft Skills Card -->
+                <div class="skills-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="skills-header">
+                        <div class="skills-icon tools-icon"><i class="fa-solid fa-wrench"></i></div>
+                        <h3 class="skills-title">Tools & Technologies</h3>
+                    </div>
+                    <div class="tools-grid">
+                        <div class="tool-item"><i class="fa-brands fa-vscode"></i><span>VS Code</span></div>
+                        <div class="tool-item"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
+                        <div class="tool-item"><i class="fa-brands fa-figma"></i><span>Figma</span></div>
+                        <div class="tool-item"><i class="fa-brands fa-npm"></i><span>npm</span></div>
+                        <div class="tool-item"><i class="fa-brands fa-docker"></i><span>Docker</span></div>
+                        <div class="tool-item"><i class="fa-solid fa-terminal"></i><span>CLI</span></div>
+                    </div>
+                    
+                    <div class="skills-header mt-6">
+                        <div class="skills-icon lang-icon"><i class="fa-solid fa-language"></i></div>
+                        <h3 class="skills-title">Languages</h3>
+                    </div>
+                    <div class="lang-grid">
+                        <div class="lang-item"><span class="lang-name">Arabic</span><span class="lang-level">Native</span></div>
+                        <div class="lang-item"><span class="lang-name">English</span><span class="lang-level">Intermediate</span></div>
+                    </div>
+                    
+                    <div class="skills-header mt-6">
+                        <div class="skills-icon soft-icon"><i class="fa-solid fa-brain"></i></div>
+                        <h3 class="skills-title">Soft Skills</h3>
+                    </div>
+                    <div class="soft-skills-grid">
+                        <div class="soft-skill-item"><i class="fa-solid fa-puzzle-piece"></i><span>Problem Solving</span></div>
+                        <div class="soft-skill-item"><i class="fa-solid fa-users"></i><span>Teamwork</span></div>
+                        <div class="soft-skill-item"><i class="fa-solid fa-book-open"></i><span>Fast Learner</span></div>
+                        <div class="soft-skill-item"><i class="fa-solid fa-clock"></i><span>Time Management</span></div>
+                        <div class="soft-skill-item"><i class="fa-solid fa-comments"></i><span>Communication</span></div>
+                        <div class="soft-skill-item"><i class="fa-solid fa-lightbulb"></i><span>Creativity</span></div>
+                        <div class="soft-skill-item"><i class="fa-solid fa-bullseye"></i><span>Attention to Detail</span></div>
+                        <div class="soft-skill-item"><i class="fa-solid fa-rocket"></i><span>Self-Motivated</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-
-                <!-- Technical Mastery Card -->
-                <div class="bg-gradient-to-br from-card to-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-primary/30 transition-all duration-300"
-                    data-aos="fade-right">
-                    <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                        <i class="fa-solid fa-code text-primary"></i> Technical Mastery
-                    </h3>
-
-                    <div class="space-y-5">
-                        <!-- Frontend -->
-                        <div class="space-y-4">
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-white text-sm font-medium">React.js</span>
-                                    <span class="text-primary text-xs font-bold">95%</span>
-                                </div>
-                                <div class="w-full bg-slate-800 rounded-full h-2">
-                                    <div class="bg-primary h-2 rounded-full" style="width: 95%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-white text-sm font-medium">JavaScript</span>
-                                    <span class="text-primary text-xs font-bold">90%</span>
-                                </div>
-                                <div class="w-full bg-slate-800 rounded-full h-2">
-                                    <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-white text-sm font-medium">HTML5</span>
-                                        <span class="text-primary text-xs font-bold">100%</span>
-                                    </div>
-                                    <div class="w-full bg-slate-800 rounded-full h-2">
-                                        <div class="bg-primary h-2 rounded-full" style="width: 100%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-white text-sm font-medium">CSS3</span>
-                                        <span class="text-primary text-xs font-bold">95%</span>
-                                    </div>
-                                    <div class="w-full bg-slate-800 rounded-full h-2">
-                                        <div class="bg-primary h-2 rounded-full" style="width: 95%"></div>
-                                    </div>
-                                </div>
-                            </div>
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 bg-dark/50 relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Experience</h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+            </div>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="exp-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="exp-date"><i class="fa-regular fa-calendar"></i> Nov 2025 - May 2026</div>
+                    <div class="exp-content">
+                        <h3 class="exp-title">Frontend Training — React</h3>
+                        <p class="exp-company"><i class="fa-solid fa-building mr-2"></i>Digital Egypt Pioneers Initiative (DEPI) — Online</p>
+                        <div class="exp-details">
+                            <div class="exp-section"><h4><i class="fa-solid fa-flag mr-2"></i>Challenge</h4><p>Master advanced React concepts and build production-ready applications while working on real-world projects under tight deadlines.</p></div>
+                            <div class="exp-section"><h4><i class="fa-solid fa-bolt mr-2"></i>Action</h4><p>Completed intensive frontend development curriculum including React, TypeScript, Tailwind CSS, and modern development tools.</p></div>
+                            <div class="exp-section"><h4><i class="fa-solid fa-trophy mr-2"></i>Result</h4><p>Successfully developed responsive web applications with modern frameworks, improved performance optimization skills.</p></div>
                         </div>
+                        <div class="exp-skills"><span class="exp-skill">React</span><span class="exp-skill">TypeScript</span><span class="exp-skill">Tailwind</span><span class="exp-skill">MongoDB</span><span class="exp-skill">.NET</span></div>
+                    </div>
+                </div>
+                <div class="exp-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="exp-date"><i class="fa-regular fa-calendar"></i> Dec 2024 - Jan 2025</div>
+                    <div class="exp-content">
+                        <h3 class="exp-title">Web Developer Training</h3>
+                        <p class="exp-company"><i class="fa-solid fa-building mr-2"></i>National Telecommunication Institute (NTI) — Zagazig</p>
+                        <div class="exp-details">
+                            <div class="exp-section"><h4><i class="fa-solid fa-flag mr-2"></i>Challenge</h4><p>Learn modern web development technologies and create a complete web application from scratch.</p></div>
+                            <div class="exp-section"><h4><i class="fa-solid fa-bolt mr-2"></i>Action</h4><p>Completed comprehensive web development training covering HTML5, CSS3, Bootstrap, and JavaScript.</p></div>
+                            <div class="exp-section"><h4><i class="fa-solid fa-trophy mr-2"></i>Result</h4><p>Built responsive websites and gained solid foundation in frontend development.</p></div>
+                        </div>
+                        <div class="exp-skills"><span class="exp-skill">HTML</span><span class="exp-skill">CSS</span><span class="exp-skill">Bootstrap</span><span class="exp-skill">JavaScript</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                        <div class="h-px bg-slate-800 my-2"></div>
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-dark relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Services</h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100"><div class="service-icon"><i class="fa-solid fa-code"></i></div><h3 class="service-title">Web Development</h3><p class="service-desc">Custom websites built with modern technologies like React, ensuring high performance and scalability.</p></div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200"><div class="service-icon"><i class="fa-solid fa-paint-brush"></i></div><h3 class="service-title">UI/UX Design</h3><p class="service-desc">Beautiful, intuitive interfaces that provide exceptional user experiences across all devices.</p></div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300"><div class="service-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3 class="service-title">Responsive Design</h3><p class="service-desc">Fully responsive websites that look and work perfectly on desktop, tablet, and mobile devices.</p></div>
+            </div>
+        </div>
+    </section>
 
-                        <!-- Backend/Systems -->
-                        <div class="space-y-4">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-white text-sm font-medium">Python</span>
-                                        <span class="text-accent text-xs font-bold">90%</span>
-                                    </div>
-                                    <div class="w-full bg-slate-800 rounded-full h-2">
-                                        <div class="bg-accent h-2 rounded-full" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-white text-sm font-medium">SQL</span>
-                                        <span class="text-accent text-xs font-bold">88%</span>
-                                    </div>
-                                    <div class="w-full bg-slate-800 rounded-full h-2">
-                                        <div class="bg-accent h-2 rounded-full" style="width: 88%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-white text-sm font-medium">C++</span>
-                                        <span class="text-accent text-xs font-bold">86%</span>
-                                    </div>
-                                    <div class="w-full bg-slate-800 rounded-full h-2">
-                                        <div class="bg-accent h-2 rounded-full" style="width: 86%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-white text-sm font-medium">C</span>
-                                        <span class="text-accent text-xs font-bold">85%</span>
-                                    </div>
-                                    <div class="w-full bg-slate-800 rounded-full h-2">
-                                        <div class="bg-accent h-2 rounded-full" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                            </div>
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-dark/50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-16"><h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Featured Projects</h2><div class="w-24 h-1.5 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div></div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-detail-card" data-project="bank">
+                    <div class="project-mockup-unified">
+                        <div class="unified-bg">
+                            <div class="device-layer layer-1"><div class="device-frame-large"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop" alt="Bank Portal" class="device-image"></div></div>
+                            <div class="device-layer layer-2"><div class="device-frame-medium"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Bank Portal" class="device-image"></div></div>
+                            <div class="device-layer layer-3"><div class="device-frame-small"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=500&fit=crop" alt="Bank Portal" class="device-image"></div></div>
+                            <div class="device-layer layer-4"><div class="device-frame-phone"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=600&fit=crop" alt="Bank Portal" class="device-image"></div></div>
+                        </div>
+                        <div class="responsive-badge"><i class="fa-solid fa-layer-group"></i><span>All Devices</span></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">National Bank Portal</h3>
+                        <p class="project-caption">Comprehensive online banking platform with secure transactions.</p>
+                        <div class="project-tools"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                        <div class="project-links">
+                            <a href="#" class="project-github"><i class="fa-brands fa-github"></i> Source</a>
+                            <button class="view-features-btn" data-project="bank"><i class="fa-solid fa-eye"></i> View Features</button>
                         </div>
                     </div>
                 </div>
-
-                <!-- Tools & Soft Skills Card -->
-                <div class="bg-gradient-to-br from-card to-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-accent/30 transition-all duration-300"
-                    data-aos="fade-left">
-                    <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                        <i class="fa-solid fa-shapes text-accent"></i> Tools & Soft Skills
-                    </h3>
-
-                    <div class="flex flex-wrap gap-x-2 gap-y-3 mb-8">
-                        <span
-                            class="px-3 py-1 bg-slate-800/50 border border-slate-700 text-slate-300 rounded-full text-sm">TypeScript</span>
-                        <span
-                            class="px-3 py-1 bg-slate-800/50 border border-slate-700 text-slate-300 rounded-full text-sm">Git
-                            & GitHub</span>
-                        <span
-                            class="px-3 py-1 bg-slate-800/50 border border-slate-700 text-slate-300 rounded-full text-sm">Python</span>
-                        <span
-                            class="px-3 py-1 bg-slate-800/50 border border-slate-700 text-slate-300 rounded-full text-sm">SQL</span>
-                        <span
-                            class="px-3 py-1 bg-slate-800/50 border border-slate-700 text-slate-300 rounded-full text-sm">Figma</span>
+                
+                <!-- Project 2 -->
+                <div class="project-detail-card" data-project="restaurant">
+                    <div class="project-mockup-unified">
+                        <div class="unified-bg">
+                            <div class="device-layer layer-1"><div class="device-frame-large"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=500&fit=crop" alt="Restaurant" class="device-image"></div></div>
+                            <div class="device-layer layer-2"><div class="device-frame-medium"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop" alt="Restaurant" class="device-image"></div></div>
+                            <div class="device-layer layer-3"><div class="device-frame-small"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=500&fit=crop" alt="Restaurant" class="device-image"></div></div>
+                            <div class="device-layer layer-4"><div class="device-frame-phone"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=300&h=600&fit=crop" alt="Restaurant" class="device-image"></div></div>
+                        </div>
+                        <div class="responsive-badge"><i class="fa-solid fa-layer-group"></i><span>All Devices</span></div>
                     </div>
-
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4">
-                            <div class="p-2 rounded-lg bg-accent/10 text-accent"><i class="fa-solid fa-check"></i></div>
-                            <span class="text-slate-300">Problem Solving & Analytical Thinking</span>
+                    <div class="project-info">
+                        <h3 class="project-title">Gourmet Restaurant</h3>
+                        <p class="project-caption">Elegant restaurant website with online reservation system.</p>
+                        <div class="project-tools"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                        <div class="project-links">
+                            <a href="#" class="project-github"><i class="fa-brands fa-github"></i> Source</a>
+                            <button class="view-features-btn" data-project="restaurant"><i class="fa-solid fa-eye"></i> View Features</button>
                         </div>
-                        <div class="flex items-center gap-4">
-                            <div class="p-2 rounded-lg bg-accent/10 text-accent"><i class="fa-solid fa-users"></i></div>
-                            <span class="text-slate-300">Team Collaboration & Leadership</span>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-detail-card" data-project="techcorp">
+                    <div class="project-mockup-unified">
+                        <div class="unified-bg">
+                            <div class="device-layer layer-1"><div class="device-frame-large"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=500&fit=crop" alt="TechCorp" class="device-image"></div></div>
+                            <div class="device-layer layer-2"><div class="device-frame-medium"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop" alt="TechCorp" class="device-image"></div></div>
+                            <div class="device-layer layer-3"><div class="device-frame-small"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=500&fit=crop" alt="TechCorp" class="device-image"></div></div>
+                            <div class="device-layer layer-4"><div class="device-frame-phone"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=300&h=600&fit=crop" alt="TechCorp" class="device-image"></div></div>
                         </div>
-                        <div class="flex items-center gap-4">
-                            <div class="p-2 rounded-lg bg-accent/10 text-accent"><i class="fa-solid fa-clock"></i></div>
-                            <span class="text-slate-300">Time Management</span>
+                        <div class="responsive-badge"><i class="fa-solid fa-layer-group"></i><span>All Devices</span></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">TechCorp Site</h3>
+                        <p class="project-caption">Modern corporate website with dynamic content management.</p>
+                        <div class="project-tools"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                        <div class="project-links">
+                            <a href="#" class="project-github"><i class="fa-brands fa-github"></i> Source</a>
+                            <button class="view-features-btn" data-project="techcorp"><i class="fa-solid fa-eye"></i> View Features</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-detail-card" data-project="calculator">
+                    <div class="project-mockup-unified">
+                        <div class="unified-bg">
+                            <div class="device-layer layer-1"><div class="device-frame-large"><img src="https://images.unsplash.com/photo-1517134191118-9d595e4c8c2b?w=800&h=500&fit=crop" alt="Calculator" class="device-image"></div></div>
+                            <div class="device-layer layer-2"><div class="device-frame-medium"><img src="https://images.unsplash.com/photo-1517134191118-9d595e4c8c2b?w=600&h=400&fit=crop" alt="Calculator" class="device-image"></div></div>
+                            <div class="device-layer layer-3"><div class="device-frame-small"><img src="https://images.unsplash.com/photo-1517134191118-9d595e4c8c2b?w=400&h=500&fit=crop" alt="Calculator" class="device-image"></div></div>
+                            <div class="device-layer layer-4"><div class="device-frame-phone"><img src="https://images.unsplash.com/photo-1517134191118-9d595e4c8c2b?w=300&h=600&fit=crop" alt="Calculator" class="device-image"></div></div>
+                        </div>
+                        <div class="responsive-badge"><i class="fa-solid fa-layer-group"></i><span>All Devices</span></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Smart Calculator</h3>
+                        <p class="project-caption">Feature-rich calculator with scientific functions.</p>
+                        <div class="project-tools"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                        <div class="project-links">
+                            <a href="#" class="project-github"><i class="fa-brands fa-github"></i> Source</a>
+                            <button class="view-features-btn" data-project="calculator"><i class="fa-solid fa-eye"></i> View Features</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-detail-card" data-project="portfolio">
+                    <div class="project-mockup-unified">
+                        <div class="unified-bg">
+                            <div class="device-layer layer-1"><div class="device-frame-large"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=500&fit=crop" alt="Portfolio" class="device-image"></div></div>
+                            <div class="device-layer layer-2"><div class="device-frame-medium"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop" alt="Portfolio" class="device-image"></div></div>
+                            <div class="device-layer layer-3"><div class="device-frame-small"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Portfolio" class="device-image"></div></div>
+                            <div class="device-layer layer-4"><div class="device-frame-phone"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=600&fit=crop" alt="Portfolio" class="device-image"></div></div>
+                        </div>
+                        <div class="responsive-badge"><i class="fa-solid fa-layer-group"></i><span>All Devices</span></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Personal Portfolio</h3>
+                        <p class="project-caption">Professional portfolio showcasing skills and projects.</p>
+                        <div class="project-tools"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                        <div class="project-links">
+                            <a href="#" class="project-github"><i class="fa-brands fa-github"></i> Source</a>
+                            <button class="view-features-btn" data-project="portfolio"><i class="fa-solid fa-eye"></i> View Features</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-detail-card" data-project="dashboard">
+                    <div class="project-mockup-unified">
+                        <div class="unified-bg">
+                            <div class="device-layer layer-1"><div class="device-frame-large"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop" alt="Dashboard" class="device-image"></div></div>
+                            <div class="device-layer layer-2"><div class="device-frame-medium"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Dashboard" class="device-image"></div></div>
+                            <div class="device-layer layer-3"><div class="device-frame-small"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=500&fit=crop" alt="Dashboard" class="device-image"></div></div>
+                            <div class="device-layer layer-4"><div class="device-frame-phone"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=600&fit=crop" alt="Dashboard" class="device-image"></div></div>
+                        </div>
+                        <div class="responsive-badge"><i class="fa-solid fa-layer-group"></i><span>All Devices</span></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Admin Dashboard</h3>
+                        <p class="project-caption">Analytics dashboard with data visualization.</p>
+                        <div class="project-tools"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                        <div class="project-links">
+                            <a href="#" class="project-github"><i class="fa-brands fa-github"></i> Source</a>
+                            <button class="view-features-btn" data-project="dashboard"><i class="fa-solid fa-eye"></i> View Features</button>
                         </div>
                     </div>
                 </div>
@@ -376,361 +484,240 @@
         </div>
     </section>
 
-                   
+    <!-- Project Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-header">
+                <h2 id="modalTitle">Project Name</h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4 class="modal-section-title"><i class="fa-solid fa-layer-group mr-2"></i>Project Overview</h4>
+                    <p class="modal-section-content" id="modalOverview"></p>
+                </div>
+                <div class="modal-section">
+                    <h4 class="modal-section-title"><i class="fa-solid fa-flag mr-2"></i>The Challenge</h4>
+                    <p class="modal-section-content" id="modalChallenge"></p>
+                </div>
+                <div class="modal-section">
+                    <h4 class="modal-section-title"><i class="fa-solid fa-lightbulb mr-2"></i>The Solution</h4>
+                    <p class="modal-section-content" id="modalSolution"></p>
+                </div>
+                <div class="modal-section">
+                    <h4 class="modal-section-title"><i class="fa-solid fa-trophy mr-2"></i>Key Results</h4>
+                    <p class="modal-section-content" id="modalResults"></p>
+                </div>
+                <div class="modal-section">
+                    <h4 class="modal-section-title"><i class="fa-solid fa-code mr-2"></i>Tech Stack</h4>
+                    <div class="modal-tech" id="modalTech"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-24 bg-dark">
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-24 bg-dark relative">
         <div class="container mx-auto px-6">
             <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Featured Projects</h2>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Achievements</h2>
                 <div class="w-24 h-1.5 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
-                <p class="text-secondary mt-6 text-lg">A showcase of 10 projects demonstrating my frontend capabilities.
-                </p>
             </div>
-
-            <!-- Grid of 10 Projects -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-
-                <!-- Project Card 1 -->
-                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
-                            <i class="fa-solid fa-cart-shopping text-xl"></i>
-                        </div>
-                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
-                                class="fa-brands fa-github text-xl"></i></a>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">E-Commerce
-                        App</h3>
-                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">A fully functional shopping platform
-                        with cart, checkout, and product filtering capabilities.</p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">React</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">Redux</span>
-                    </div>
-                    <a href="#"
-                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
-                        Live</a>
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="achievement-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3 class="achievement-title">Helwan University</h3>
+                    <p class="achievement-meta">2019 - 2024</p>
+                    <p class="achievement-desc">Graduated with Very Good grade in Communications & Computer Engineering.</p>
                 </div>
-
-                <!-- Project Card 2 -->
-                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
-                    data-aos="fade-up" data-aos-delay="150">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
-                            <i class="fa-solid fa-list-check text-xl"></i>
-                        </div>
-                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
-                                class="fa-brands fa-github text-xl"></i></a>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Task
-                        Manager</h3>
-                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">Productivity tool with drag-and-drop
-                        Kanban board using dnd-kit.</p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">React</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">DnD</span>
-                    </div>
-                    <a href="#"
-                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
-                        Live</a>
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="achievement-icon"><i class="fa-solid fa-trophy"></i></div>
+                    <h3 class="achievement-title">Capstone Project Distinction</h3>
+                    <p class="achievement-meta">2024</p>
+                    <p class="achievement-desc">Graduation project received distinction for outstanding performance.</p>
                 </div>
-
-                <!-- Project 3 -->
-                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
-                            <i class="fa-solid fa-cloud-sun text-xl"></i>
-                        </div>
-                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
-                                class="fa-brands fa-github text-xl"></i></a>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Weather
-                        Dashboard</h3>
-                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">Real-time weather tracking utilizing
-                        OpenWeatherMap API and geolocation.</p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">JS</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">API</span>
-                    </div>
-                    <a href="#"
-                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
-                        Live</a>
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="achievement-icon"><i class="fa-solid fa-certificate"></i></div>
+                    <h3 class="achievement-title">DEPI Certification</h3>
+                    <p class="achievement-meta">Nov 2025 - May 2026</p>
+                    <p class="achievement-desc">Frontend Developer certification from Digital Egypt Pioneers Initiative.</p>
                 </div>
-
-                <!-- Project 4 -->
-                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
-                    data-aos="fade-up" data-aos-delay="250">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
-                            <i class="fa-solid fa-user text-xl"></i>
-                        </div>
-                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
-                                class="fa-brands fa-github text-xl"></i></a>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Portfolio
-                        v1</h3>
-                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">A personal portfolio website
-                        showcasing designs and project history.</p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">HTML</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">CSS</span>
-                    </div>
-                    <a href="#"
-                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
-                        Live</a>
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="achievement-icon"><i class="fa-solid fa-star"></i></div>
+                    <h3 class="achievement-title">Excellent Academic Grade</h3>
+                    <p class="achievement-meta">2024</p>
+                    <p class="achievement-desc">Graduated with Very Good grade in Communications & Computer Engineering.</p>
                 </div>
-
-                <!-- Project 5 -->
-                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
-                            <i class="fa-solid fa-chart-line text-xl"></i>
-                        </div>
-                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
-                                class="fa-brands fa-github text-xl"></i></a>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Admin
-                        Dashboard</h3>
-                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">Analytics dashboard with charts, user
-                        management and data visualization.</p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">React</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">Charts</span>
-                    </div>
-                    <a href="#"
-                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
-                        Live</a>
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="achievement-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    <h3 class="achievement-title">NTI Certification</h3>
+                    <p class="achievement-meta">Dec 2024 - Jan 2025</p>
+                    <p class="achievement-desc">Web Development Training from National Telecommunication Institute.</p>
                 </div>
-
-                <!-- Project 6 -->
-                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
-                    data-aos="fade-up" data-aos-delay="350">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
-                            <i class="fa-solid fa-hashtag text-xl"></i>
-                        </div>
-                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
-                                class="fa-brands fa-github text-xl"></i></a>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Social
-                        Clone</h3>
-                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">Social media feed with like, comment,
-                        and posting functionalities.</p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">React</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">Firebase</span>
-                    </div>
-                    <a href="#"
-                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
-                        Live</a>
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="achievement-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3 class="achievement-title">ITI AI Certification</h3>
+                    <p class="achievement-meta">2024</p>
+                    <p class="achievement-desc">AI Course completion from Information Technology Institute.</p>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Project 7 -->
-                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
-                    data-aos="fade-up" data-aos-delay="400">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
-                            <i class="fa-solid fa-gamepad text-xl"></i>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 bg-dark/50 relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Testimonials</h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="quote-icon mb-4"><i class="fa-solid fa-quote-left text-3xl text-primary/30"></i></div>
+                    <p class="testimonial-text">"Fawzia is an exceptional frontend developer with outstanding skills in React and modern web technologies. Her attention to detail and commitment to delivering high-quality work makes her a valuable asset to any project."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div class="author-info">
+                            <span class="author-name">Ahmed Hassan</span>
+                            <span class="author-role">Project Manager</span>
                         </div>
-                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
-                                class="fa-brands fa-github text-xl"></i></a>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Quiz App
-                    </h3>
-                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">Interactive quiz game with timer and
-                        scoring system.</p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">JS</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">DOM</span>
-                    </div>
-                    <a href="#"
-                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
-                        Live</a>
                 </div>
-
-                <!-- Project 8 -->
-                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
-                    data-aos="fade-up" data-aos-delay="450">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
-                            <i class="fa-solid fa-film text-xl"></i>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="quote-icon mb-4"><i class="fa-solid fa-quote-left text-3xl text-primary/30"></i></div>
+                    <p class="testimonial-text">"Working with Fawzia was a pleasure. She delivered our project on time and exceeded our expectations. Her creativity and technical skills are remarkable."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div class="author-info">
+                            <span class="author-name">Sarah Mohamed</span>
+                            <span class="author-role">CEO, TechStart</span>
                         </div>
-                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
-                                class="fa-brands fa-github text-xl"></i></a>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Movie
-                        Search</h3>
-                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">Movie database interface allowing
-                        search and details view.</p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">React</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">API</span>
-                    </div>
-                    <a href="#"
-                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
-                        Live</a>
                 </div>
-
-                <!-- Project 9 -->
-                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
-                    data-aos="fade-up" data-aos-delay="500">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
-                            <i class="fa-solid fa-calculator text-xl"></i>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="quote-icon mb-4"><i class="fa-solid fa-quote-left text-3xl text-primary/30"></i></div>
+                    <p class="testimonial-text">"Fawzia transformed our outdated website into a modern, responsive platform. Our user engagement increased by 60% after the redesign."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div class="author-info">
+                            <span class="author-name">Mohamed Ali</span>
+                            <span class="author-role">Business Owner</span>
                         </div>
-                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
-                                class="fa-brands fa-github text-xl"></i></a>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Calculator
-                    </h3>
-                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">A clean, functional calculator with
-                        support for basic arithmetic operations.</p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">JS</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">CSS</span>
-                    </div>
-                    <a href="#"
-                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
-                        Live</a>
                 </div>
-
-                <!-- Project 10 -->
-                <div class="group bg-card border border-slate-800 rounded-2xl p-6 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-full"
-                    data-aos="fade-up" data-aos-delay="550">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="p-3 bg-slate-800 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
-                            <i class="fa-solid fa-laptop-code text-xl"></i>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="quote-icon mb-4"><i class="fa-solid fa-quote-left text-3xl text-primary/30"></i></div>
+                    <p class="testimonial-text">"Her problem-solving abilities and fast learning curve impressed us. Fawzia quickly adapted to our tech stack and delivered excellent results."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div class="author-info">
+                            <span class="author-name">Lina Khaled</span>
+                            <span class="author-role">CTO, InnovateTech</span>
                         </div>
-                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i
-                                class="fa-brands fa-github text-xl"></i></a>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Landing
-                        Page</h3>
-                    <p class="text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">High-conversion landing page with
-                        smooth scroll and animations.</p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-primary rounded border border-slate-700">HTML</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">Tailwind</span>
-                    </div>
-                    <a href="#"
-                        class="w-full py-2 bg-slate-800 text-white rounded text-sm font-medium hover:bg-primary hover:text-dark transition-colors text-center">View
-                        Live</a>
                 </div>
-
+                <div class="testimonial-card md:col-span-2" data-aos="fade-up" data-aos-delay="300">
+                    <div class="quote-icon mb-4"><i class="fa-solid fa-quote-left text-3xl text-primary/30"></i></div>
+                    <p class="testimonial-text">"Fawzia demonstrates professional excellence in every aspect of web development. Her code is clean, well-documented, and maintainable. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div class="author-info">
+                            <span class="author-name">Dr. Omar Farouk</span>
+                            <span class="author-role">Professor, Helwan University</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-24 bg-card relative overflow-hidden">
-        <!-- Glow -->
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -z-10 animate-pulse">
-        </div>
-
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -z-10"></div>
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto rounded-3xl bg-slate-900/80 backdrop-blur-md border border-slate-800 p-8 md:p-16 text-center shadow-2xl"
-                data-aos="zoom-in">
-                <h2 class="text-3xl font-bold text-white mb-4">Let's Work Together</h2>
-                <p class="text-slate-400 mb-10 max-w-xl mx-auto">
-                    I'm currently open for new opportunities. Whether you have a project in mind or just want to
-                    connect, feel free to reach out!
-                </p>
-
-                <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-10">
-                    <div
-                        class="p-5 rounded-xl bg-dark/50 border border-slate-700/50 hover:border-primary/50 transition-all duration-300 group text-left">
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-dark transition-colors shadow-[0_0_15px_rgba(34,211,238,0.2)]">
+            <div class="max-w-5xl mx-auto" data-aos="fade-up">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Let's Work Together</h2>
+                    <div class="w-24 h-1.5 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-6"></div>
+                    <p class="text-slate-400 max-w-xl mx-auto text-lg">I'm currently open for new opportunities! Whether you have a project in mind or just want to chat, feel free to reach out.</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-10">
+                    <div class="space-y-6">
+                        <div class="contact-card hover:scale-[1.02] transition-transform duration-300">
+                            <div class="contact-icon bg-gradient-to-br from-primary/20 to-primary/5">
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
-                            <div>
-                                <span class="block text-xs text-slate-500 uppercase tracking-wider mb-1">Email Me</span>
-                                <span class="block text-sm text-white font-medium">contact@example.com</span>
+                            <div class="contact-info">
+                                <span class="contact-label">Email</span>
+                                <a href="mailto:fawziayasser8@gmail.com" class="contact-value hover:text-primary transition-colors">fawziayasser8@gmail.com</a>
                             </div>
                         </div>
-                    </div>
-
-                    <div
-                        class="p-5 rounded-xl bg-dark/50 border border-slate-700/50 hover:border-primary/50 transition-all duration-300 group text-left">
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-dark transition-colors shadow-[0_0_15px_rgba(34,211,238,0.2)]">
+                        <div class="contact-card hover:scale-[1.02] transition-transform duration-300">
+                            <div class="contact-icon bg-gradient-to-br from-green-500/20 to-green-500/5">
                                 <i class="fa-solid fa-phone"></i>
                             </div>
-                            <div>
-                                <span class="block text-xs text-slate-500 uppercase tracking-wider mb-1">Call Me</span>
-                                <span class="block text-sm text-white font-medium">+123 456 7890</span>
+                            <div class="contact-info">
+                                <span class="contact-label">Phone</span>
+                                <a href="tel:01287292585" class="contact-value hover:text-primary transition-colors">01287292585</a>
+                            </div>
+                        </div>
+                        <div class="contact-card hover:scale-[1.02] transition-transform duration-300">
+                            <div class="contact-icon bg-gradient-to-br from-purple-500/20 to-purple-500/5">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-label">Location</span>
+                                <span class="contact-value">Cairo, Egypt</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-6">
+                            <p class="text-slate-400 mb-4">Follow me on social media</p>
+                            <div class="flex gap-4">
+                                <a href="#" class="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/50 border border-slate-700 text-slate-400 hover:text-primary hover:border-primary/50 hover:scale-110 transition-all duration-300">
+                                    <i class="fa-brands fa-github text-xl"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/50 border border-slate-700 text-slate-400 hover:text-blue-500 hover:border-blue-500/50 hover:scale-110 transition-all duration-300">
+                                    <i class="fa-brands fa-linkedin-in text-xl"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/50 border border-slate-700 text-slate-400 hover:text-green-500 hover:border-green-500/50 hover:scale-110 transition-all duration-300">
+                                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                                </a>
+                                <a href="#home" class="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/50 border border-slate-700 text-slate-400 hover:text-primary hover:border-primary/50 hover:scale-110 transition-all duration-300">
+                                    <i class="fa-solid fa-arrow-up text-xl"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Simple Contact Form -->
-                <form class="max-w-md mx-auto space-y-4 mb-10 text-left">
-                    <div>
-                        <input type="text" placeholder="Your Name"
-                            class="w-full px-4 py-3 bg-dark border border-slate-700 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm text-white placeholder-slate-500 transition-colors">
+                    
+                    <div class="bg-gradient-to-br from-slate-900/90 to-slate-800/50 backdrop-blur-sm p-8 rounded-3xl border border-slate-700/50">
+                        <h3 class="text-2xl font-bold text-white mb-6">Send a Message</h3>
+                        <form class="space-y-5">
+                            <div class="grid md:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-400 mb-2">Your Name</label>
+                                    <input type="text" placeholder="John Doe" class="w-full px-4 py-3 bg-slate-800/80 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder-slate-500">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-400 mb-2">Your Email</label>
+                                    <input type="email" placeholder="john@example.com" class="w-full px-4 py-3 bg-slate-800/80 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder-slate-500">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-400 mb-2">Subject</label>
+                                <input type="text" placeholder="Project Inquiry" class="w-full px-4 py-3 bg-slate-800/80 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder-slate-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-400 mb-2">Message</label>
+                                <textarea placeholder="Tell me about your project..." rows="5" class="w-full px-4 py-3 bg-slate-800/80 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder-slate-500 resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full px-8 py-4 bg-gradient-to-r from-primary to-cyan-400 text-dark font-bold rounded-xl hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 transform hover:-translate-y-1">
+                                <i class="fa-solid fa-paper-plane mr-2"></i>Send Message
+                            </button>
+                        </form>
                     </div>
-                    <div>
-                        <input type="email" placeholder="Your Email"
-                            class="w-full px-4 py-3 bg-dark border border-slate-700 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm text-white placeholder-slate-500 transition-colors">
-                    </div>
-                    <div>
-                        <textarea placeholder="Your Message" rows="3"
-                            class="w-full px-4 py-3 bg-dark border border-slate-700 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm text-white placeholder-slate-500 transition-colors"></textarea>
-                    </div>
-                    <button type="button"
-                        class="w-full py-4 bg-primary hover:bg-cyan-300 text-dark font-bold rounded-lg transition-all duration-300 shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)]">
-                        Send Message <i class="fa-solid fa-paper-plane ml-2"></i>
-                    </button>
-                </form>
-
-                <div class="flex justify-center gap-8 pt-8 border-t border-slate-800">
-                    <a href="#" aria-label="GitHub Profile"
-                        class="text-slate-400 hover:text-white hover:scale-110 transition-all duration-300 text-2xl"><i
-                            class="fa-brands fa-github"></i></a>
-                    <a href="#" aria-label="LinkedIn Profile"
-                        class="text-slate-400 hover:text-blue-500 hover:scale-110 transition-all duration-300 text-2xl"><i
-                            class="fa-brands fa-linkedin"></i></a>
-                    <a href="#" aria-label="WhatsApp Contact"
-                        class="text-slate-400 hover:text-green-500 hover:scale-110 transition-all duration-300 text-2xl"><i
-                            class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
@@ -739,15 +726,104 @@
     <!-- Footer -->
     <footer class="bg-dark text-slate-500 py-8 border-t border-slate-800">
         <div class="container mx-auto px-6 text-center">
-            <p>&copy; <span id="year"></span> <span class="font-bold text-slate-300">Fawzia Yasser</span>. All rights
-                reserved.</p>
+            <p>&copy; <span id="year"></span> <span class="font-bold text-slate-300">Fawzia Yasser</span>. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <!-- AOS Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        // Project Data
+        const projectData = {
+            bank: {
+                title: 'National Bank Portal',
+                overview: 'A comprehensive online banking platform that provides secure transactions, account management, and financial services to customers.',
+                challenge: 'Building a secure, scalable banking system that handles sensitive financial data while maintaining excellent user experience.',
+                solution: 'Developed a responsive frontend with HTML5, CSS3, and JavaScript, implementing AES-256 encryption for data security.',
+                results: 'Successfully deployed with 50,000+ active users and 40% increase in digital banking adoption.',
+                tech: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'MongoDB']
+            },
+            restaurant: {
+                title: 'Gourmet Restaurant',
+                overview: 'An elegant restaurant website featuring online reservation system, menu showcase, and virtual dining experience.',
+                challenge: 'Creating an immersive visual experience that reflects the restaurants premium brand while ensuring fast loading times.',
+                solution: 'Built with modern HTML5, CSS3 with custom animations, and JavaScript with lazy loading for images.',
+                results: 'Restaurant bookings increased by 35% within the first month and website traffic grew by 150%.',
+                tech: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'PHP', 'MySQL']
+            },
+            techcorp: {
+                title: 'TechCorp Site',
+                overview: 'A modern corporate website for a technology company featuring dynamic content management and service showcases.',
+                challenge: 'Creating a scalable website that can be easily updated by non-technical staff while maintaining a premium appearance.',
+                solution: 'Developed a custom CMS solution with HTML, CSS, JavaScript and integrated third-party APIs.',
+                results: 'Lead generation increased by 75% and average time on site improved by 120%.',
+                tech: ['HTML', 'CSS', 'JavaScript', 'WordPress', 'PHP', 'MySQL']
+            },
+            calculator: {
+                title: 'Smart Calculator',
+                overview: 'A feature-rich calculator application with scientific functions, history tracking, and customizable themes.',
+                challenge: 'Implementing complex scientific functions while maintaining an intuitive interface and accurate calculations.',
+                solution: 'Built a responsive calculator with scientific mode, history tracking stored locally, and keyboard support.',
+                results: 'Downloaded by 10,000+ users with 4.8-star rating and praised for clean interface.',
+                tech: ['HTML', 'CSS', 'JavaScript', 'LocalStorage']
+            },
+            portfolio: {
+                title: 'Personal Portfolio',
+                overview: 'A professional portfolio website showcasing skills, projects, and achievements with smooth animations.',
+                challenge: 'Standing out in a saturated market of developer portfolios while demonstrating technical proficiency.',
+                solution: 'Created a unique dark-themed design with gradient accents and interactive project cards.',
+                results: 'Received 15+ job interview requests within first month and featured in top portfolios list.',
+                tech: ['HTML', 'CSS', 'JavaScript', 'Tailwind', 'AOS']
+            },
+            dashboard: {
+                title: 'Admin Dashboard',
+                overview: 'A comprehensive analytics dashboard with data visualization, user management, and reporting features.',
+                challenge: 'Visualizing complex data sets in an intuitive format while maintaining fast performance.',
+                solution: 'Built using modern JavaScript with Chart.js for visualizations and WebSocket for real-time updates.',
+                results: 'Reduced reporting time by 80% and improved decision-making speed by 60%.',
+                tech: ['HTML', 'CSS', 'JavaScript', 'React', 'Chart.js', 'Node.js']
+            }
+        };
+
+        // Modal functionality
+        const modal = document.getElementById('projectModal');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalClose = document.getElementById('modalClose');
+        const viewButtons = document.querySelectorAll('.view-features-btn');
+
+        viewButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const projectKey = btn.dataset.project;
+                const project = projectData[projectKey];
+                
+                if (project) {
+                    document.getElementById('modalTitle').textContent = project.title;
+                    document.getElementById('modalOverview').textContent = project.overview;
+                    document.getElementById('modalChallenge').textContent = project.challenge;
+                    document.getElementById('modalSolution').textContent = project.solution;
+                    document.getElementById('modalResults').textContent = project.results;
+                    document.getElementById('modalTech').innerHTML = project.tech.map(t => `<span>${t}</span>`).join('');
+                    
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', closeModal);
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 
 </html>
